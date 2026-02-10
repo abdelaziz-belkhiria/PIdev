@@ -1,0 +1,21 @@
+# Java
+*.class
+*.jar
+*.war
+*.iml
+*.log
+*.db
+
+# Spring Boot
+target/
+bin/
+
+# IntelliJ
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# Maven
+/.mvn
