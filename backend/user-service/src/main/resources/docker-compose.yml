@@ -1,4 +1,5 @@
 version: '3.8'
+
 services:
   keycloak:
     image: quay.io/keycloak/keycloak:23.0.0
@@ -6,11 +7,9 @@ services:
     environment:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
-      # 👇 ADD THESE LINES TO FIX THE NETWORK ERROR
       KC_HOSTNAME: localhost
       KC_HOSTNAME_PORT: 8180
       KC_HOSTNAME_STRICT: "false"
-      KC_HOSTNAME_STRICT_HTTPS: "false"
       KC_HTTP_ENABLED: "true"
     ports:
       - "8180:8080"

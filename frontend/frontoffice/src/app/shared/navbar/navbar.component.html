@@ -87,15 +87,15 @@
           <a routerLink="/contact" class="nav-item nav-link">Contact</a>
         </div>
 
-        <!-- User Info (Top-right) - Simple -->
         <div class="d-flex align-items-center ms-3">
           <!-- Avatar Circle -->
           <img src="assets/template/img/user-avatar.jpg" alt="User Avatar" width="40" height="40" class="rounded-circle me-2 border border-primary">
           <!-- User Name -->
-          <span class="fw-semibold me-3">John Doe</span>
+          <span class="fw-semibold me-3">{{ username }}</span>
           <!-- Logout Button -->
           <button class="btn btn-sm btn-outline-danger" (click)="logout()">Logout</button>
         </div>
+
 
 
       </div>

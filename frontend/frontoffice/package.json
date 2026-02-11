@@ -32,6 +32,7 @@
     "@ng-bootstrap/ng-bootstrap": "^20.0.0",
     "bootstrap": "^5.3.8",
     "jquery": "^4.0.0",
+    "keycloak-angular": "^21.0.0",
     "owl.carousel": "^2.3.4",
     "rxjs": "~7.8.0",
     "tempusdominus": "^5.16.0",
