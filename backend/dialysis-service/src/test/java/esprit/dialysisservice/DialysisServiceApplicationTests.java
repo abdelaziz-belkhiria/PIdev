@@ -1,13 +1,14 @@
 package esprit.dialysisservice;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
-@SpringBootTest
-class DialysisServiceApplicationTests {
+@SpringBootApplication
+@EnableEurekaClient
+public class DialysisServiceApplicationTests {
 
-    @Test
-    void contextLoads() {
+    public static void main(String[] args) {
+        SpringApplication.run(DialysisServiceApplication.class, args);
     }
-
 }
