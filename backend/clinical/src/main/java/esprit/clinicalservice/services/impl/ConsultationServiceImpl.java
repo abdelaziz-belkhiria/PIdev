@@ -3,17 +3,19 @@ package esprit.clinicalservice.services.impl;
 import esprit.clinicalservice.entities.Consultation;
 import esprit.clinicalservice.repositories.ConsultationRepository;
 import esprit.clinicalservice.services.ConsultationService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
 
 @Service
-@RequiredArgsConstructor
 public class ConsultationServiceImpl implements ConsultationService {
 
     private final ConsultationRepository consultationRepository;
+
+    public ConsultationServiceImpl(ConsultationRepository consultationRepository) {
+        this.consultationRepository = consultationRepository;
+    }
 
     @Override
     public Consultation create(Consultation consultation) {

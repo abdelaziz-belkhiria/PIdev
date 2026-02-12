@@ -2,20 +2,27 @@ package esprit.clinicalservice.controllers;
 
 import esprit.clinicalservice.entities.Consultation;
 import esprit.clinicalservice.services.ConsultationService;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/consultations")
-@RequiredArgsConstructor
 public class ConsultationController {
 
-    @Autowired
-    private ConsultationService consultationService;
+    private final ConsultationService consultationService;
+
+    public ConsultationController(ConsultationService consultationService) {
+        this.consultationService = consultationService;
+    }
 
     @PostMapping
     public Consultation create(@RequestBody Consultation consultation) {

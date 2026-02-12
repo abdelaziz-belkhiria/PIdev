@@ -3,17 +3,19 @@ package esprit.clinicalservice.services.impl;
 import esprit.clinicalservice.entities.MedicalHistory;
 import esprit.clinicalservice.repositories.MedicalHistoryRepository;
 import esprit.clinicalservice.services.MedicalHistoryService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
 
 @Service
-@RequiredArgsConstructor
 public class MedicalHistoryServiceImpl implements MedicalHistoryService {
 
     private final MedicalHistoryRepository medicalHistoryRepository;
+
+    public MedicalHistoryServiceImpl(MedicalHistoryRepository medicalHistoryRepository) {
+        this.medicalHistoryRepository = medicalHistoryRepository;
+    }
 
     @Override
     public MedicalHistory create(MedicalHistory medicalHistory) {
