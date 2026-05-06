@@ -1,18 +1,28 @@
 FROM maven:3.9.9-eclipse-temurin-17 AS builder
 
-ARG SERVICE_PATH
 WORKDIR /workspace
 
-# Copy backend mono-repo and build the selected service.
+ARG SERVICE_PATH
+
+COPY settings.xml /root/.m2/settings.xml
+
 COPY . .
+
 WORKDIR /workspace/${SERVICE_PATH}
-RUN mvn -B -DskipTests clean package
+
+RUN mvn -B -DskipTests \
+    -Dmaven.wagon.http.ssl.insecure=true \
+    -Dmaven.wagon.http.ssl.allowall=true \
+    clean package
+
+RUN cp target/*.jar /app.jar
 
 FROM eclipse-temurin:17-jre
-ARG SERVICE_PATH
+
 WORKDIR /app
 
-COPY --from=builder /workspace/${SERVICE_PATH}/target/*.jar /app/app.jar
+COPY --from=builder /app.jar app.jar
 
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "/app/app.jar"]
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
